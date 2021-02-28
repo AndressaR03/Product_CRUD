@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Produtos</h2>
+    <form id="form">
+        <label id="Id" style="display:none"></label>
+        <div class="form-group col-12">
+            <label for="Nome">Nome</label>
+            <input type="text" class="form-control col-12" id="Nome" />
+        </div>
+        <div class="form-group col-12">
+            <label for="Descricao">Descrição</label>
+            <input type="text" class="form-control col-12" id="Descricao" />
+        </div>
+        <div class="form-row align-items-center col-12">
+            <div class="form-group col-sm-7 my-7">
+                <label for="Categoria">Categoria</label>
+                <select class="select form-control col-7" id="Categoria"></select>
+            </div>
+            <div class="form-check col-sm-2 my-2">
+                <input type="checkbox" class=" form-check-input" id="Perecivel">
+                <label class="form-check-label" for="Perecivel">Perecível</label>
+            </div>
+            <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Cadastrar</button>
+            <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="return Update();">Atualizar</button>
+        </div>
+    </form>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Descrição
+                </th>
+                <th>
+                    Categoria do Produto
+                </th>
+                <th>
+                    Ativo
+                </th>
+                <th>
+                    Perecivel
+                </th>
+                <th>
+                    Ação
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+</div>
+
