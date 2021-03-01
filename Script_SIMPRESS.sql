@@ -38,7 +38,11 @@ INSERT INTO tblCategoriaProduto (id, Nome, Descricao, Ativo)values (NEXT VALUE F
 INSERT INTO tblCategoriaProduto (id, Nome, Descricao, Ativo)values (NEXT VALUE FOR SQ_CATEGORIA_ID, 'Livros', 'Livros ', 1);
 
 
+INSERT INTO tblProduto (id, Nome, Descricao, Ativo,Perecivel, CategoriaID)values (NEXT VALUE FOR SQ_PRODUTO_ID, 'Pen Drive', 'Pen drive 8g', 1, 0, 2);
+INSERT INTO tblProduto (id, Nome, Descricao, Ativo,Perecivel, CategoriaID)values (NEXT VALUE FOR SQ_PRODUTO_ID, 'Iphone 5s', 'Iphone 5s 16GB - Apple', 1, 0, 3);
+INSERT INTO tblProduto (id, Nome, Descricao, Ativo,Perecivel, CategoriaID)values (NEXT VALUE FOR SQ_PRODUTO_ID, 'TV LG Smart ', 'TV LG Smart 100 pol', 1, 0, 1);
 go
+
 
 --Select Produtos with categoria
 CREATE PROCEDURE SelectProdutoCategoria
@@ -54,7 +58,7 @@ go
 CREATE PROCEDURE SelectCategoria 
 as 
 BEGIN
-SELECT * FROM tblCategoriaProduto;
+SELECT * FROM tblCategoriaProduto where Ativo=1;
 END
 go
 

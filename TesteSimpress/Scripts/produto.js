@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 function loadData() {
     $.ajax({
-        url: "/Produto/List",
+        url: "./List",
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
@@ -37,7 +37,7 @@ function loadData() {
 
 function loadCategoria() {
     $.ajax({
-        url: "/Produto/ListCategoria",
+        url: "./ListCategoria",
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
@@ -72,16 +72,13 @@ function Add() {
         Ativo: 1,
     };
     $.ajax({
-        url: "/Produto/Add",
+        url: "./Add",
         data: JSON.stringify(prodObj),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $(':input[type=text], textarea', '#form')
-                .not(':button, :submit, :reset, :hidden')
-                .val('')
-                .prop('checked', false);
+            $(':input[type=text], textarea', '#form').not(':button, :submit, :reset, :hidden').val('').prop('checked', false);
             loadData();
             loadCategoria();
         },
@@ -97,7 +94,7 @@ function getbyID(ProdID) {
     $('#Descricao').css('border-color', 'lightgrey');
     $('#Categoria').css('border-color', 'lightgrey');
     $.ajax({
-        url: "Produto/getbyID/" + ProdID,
+        url: "./getbyID/" + ProdID,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
@@ -137,16 +134,13 @@ function Update() {
         CategoriaID: $("#Categoria").val(),
     };
     $.ajax({
-        url: "/Produto/Update",
+        url: "./Update",
         data: JSON.stringify(prodObj),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $(':input[type=text], textarea', '#form')
-                .not(':button, :submit, :reset')
-                .val('')
-                .prop('checked', false);
+            $(':input[type=text], textarea', '#form').not(':button, :submit, :reset').val('').prop('checked', false);
             $("#btnUpdate").hide();
             $("#btnAdd").show();
             loadData();
@@ -163,7 +157,7 @@ function Delete(ID) {
     var confirmation = confirm("Tem certeza que deseja excluir esse Produto?");
     if (confirmation) {
         $.ajax({
-            url: "/Produto/Delete/" + ID,
+            url: "./Delete/" + ID,
             type: "POST",
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
